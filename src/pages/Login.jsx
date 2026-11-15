@@ -22,7 +22,6 @@ function Login() {
   return (
     <section className="container mx-auto mt-10 px-4 flex justify-center">
       <div className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl space-y-6">
-        {/* Header */}
         <div className="text-center space-y-2">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white/10 border border-white/15 mx-auto">
             <img src={logo} alt="StockGuard" className="w-7 h-7 object-contain rounded-full" />

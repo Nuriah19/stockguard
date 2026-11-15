@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import logo from "../assets/images/logo.png";
 const cartIcon = (
   <svg
@@ -35,7 +34,7 @@ const guardIcon = (
 );
 function Nav() {
   return (
-    <header className="container mx-auto mt-8 px-4   transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 hover:border-teal-400/40 hover:shadow-[0_20px_50px_rgba(20,184,166,0.15)]">
+    <header className="container mx-auto mt-8 px-4">
       <nav className="flex items-center justify-between bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-4 shadow-lg">
         <div className="flex items-center gap-3">
           <img
@@ -50,33 +49,45 @@ function Nav() {
         </div>
 
         <ul className="flex items-center gap-6">
-          <Link to="/"><li>
-            <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
-              Home
-            </button>
-          </li></Link>
-         <Link to="/ClearanceShop"><li>
-            <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
-              Clearance Shop
-            </button>
-          </li></Link>
-          <Link to="/Aboutus"><li>
-            <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
-              About Us
-            </button>
-          </li></Link>
+          <Link to="/">
+            <li>
+              <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
+                Home
+              </button>
+            </li>
+          </Link>
+          <Link to="/ClearanceShop">
+            <li>
+              <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
+                Clearance Shop
+              </button>
+            </li>
+          </Link>
+          <Link to="/Aboutus">
+            <li>
+              <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
+                About Us
+              </button>
+            </li>
+          </Link>
         </ul>
 
         <div className="flex items-center gap-3">
-         <Link to="/Cart"><button className="p-2.5 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/25 transition duration-200 cursor-pointer">
-            {cartIcon}
-          </button></Link> 
-         <Link to="/Login"><button className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-yellow-400 border border-teal-300/40 text-white text-sm font-semibold transition duration-200 cursor-pointer">
-            Login
-          </button></Link>
-          <Link to="/Signup"><button className="px-4 py-2 rounded-xl bg-orange-400 hover:bg-teal-500 border border-teal-300/40 text-white text-sm font-semibold transition duration-200 cursor-pointer">
-            Sign Up
-          </button></Link>
+          <Link to="/Cart">
+            <button className="p-2.5 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/25 transition duration-200 cursor-pointer">
+              {cartIcon}
+            </button>
+          </Link>
+          <Link to="/Login">
+            <button className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-yellow-400 border border-teal-300/40 text-white text-sm font-semibold transition duration-200 cursor-pointer">
+              Login
+            </button>
+          </Link>
+          <Link to="/Signup">
+            <button className="px-4 py-2 rounded-xl bg-orange-400 hover:bg-teal-500 border border-teal-300/40 text-white text-sm font-semibold transition duration-200 cursor-pointer">
+              Sign Up
+            </button>
+          </Link>
         </div>
       </nav>
     </header>
