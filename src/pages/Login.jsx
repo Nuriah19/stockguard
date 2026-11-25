@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import { auth } from "../firebase";
+import { EyeClosed } from "lucide-react";
+import { Eye } from "lucide-react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function Login() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -15,8 +21,34 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Logging in:", credentials);
-    navigate("/ClearanceShop");
+  const errors =
+ (!formData.email || formData.email === "") &&
+      (errors.email = true)
+      (!formData.password || formData.password === "") &&
+      (errors.password = true)
+    console.log(errors);
+    console.log(formData);
+
+    setFormErrors;
+    {
+      errors;
+    }
+        if (Object.keys(formErrors).length === 0) {
+          const { email, password } = formData;
+          // setIsLoading(true);
+          signInWithEmailAndPassword(auth, email, password).then;
+          ((userCredential) => {
+            const user = userCredential.user;
+            // setIsLoading(false);
+            if (user) navigate("/");
+            console.log(user);
+          }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
+          });
+        }
   };
 
   return (
