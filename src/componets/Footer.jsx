@@ -5,7 +5,7 @@ import Phone from "../assets/images/phone.png";
 function Footer() {
   return (
     <footer className="container mx-auto mt-20 mb-8 px-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 hover:border-teal-400/40 hover:shadow-[0_20px_50px_rgba(20,184,166,0.15)]">
-      <div className="">
+      
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -83,7 +83,7 @@ function Footer() {
           © {new Date().getFullYear()} StockGuard Kenya. All rights reserved.
           Zero Waste • Smart Retail
         </div>
-      </div>
+    
     </footer>
   );
 }

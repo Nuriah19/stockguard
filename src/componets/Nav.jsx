@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import { useContext } from "react";
+import { CartContext } from "../context/State";
+
+
 const cartIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -33,60 +37,80 @@ const guardIcon = (
   </svg>
 );
 function Nav() {
-  return (
-    <header className="container mx-auto mt-8 px-4">
-      <nav className="flex items-center justify-between bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-4 shadow-lg">
-        <div className="flex items-center gap-3">
-          <img
-            src={logo}
-            alt="StockGuard"
-            className="w-15 h-12 object-contain rounded-3xl"
-          />
-          <h1 className="font-bold text-white tracking-wider  hidden sm:inline text-3xl ">
-            {guardIcon}
-            STOCK<span className="text-teal-700 text-3xl">GUARD</span>
-          </h1>
-        </div>
+  const {cart}=useContext(CartContext)
 
-        <ul className="flex items-center gap-6">
-          <Link to="/">
-            <li>
-              <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
-                Home
-              </button>
-            </li>
-          </Link>
-          <Link to="/ClearanceShop">
-            <li>
-              <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
-                Clearance Shop
-              </button>
-            </li>
-          </Link>
-          <Link to="/Aboutus">
-            <li>
-              <button className="px-4 py-2 rounded-lg bg-white/10 text-slate-200 border border-white/10 hover:bg-teal-500 hover:text-white hover:border-white/30 transition duration-200 cursor-pointer">
-                About Us
-              </button>
-            </li>
-          </Link>
+  return (
+    <header className="container mx-auto pt-5 px-4">
+      <nav className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3.5 shadow-xl flex flex-wrap items-center justify-between gap-4">
+        
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-15 h-9 rounded-full   flex items-center justify-center p-1.5 shadow-inner group-hover:border-teal-400/50 transition">
+            <img
+              src={logo}
+              alt="StockGuard Logo"
+              className="w-full h-full object-contain rounded-full"
+            />
+          </div>
+          <span className="text-lg font-extrabold text-white tracking-wider uppercase">
+            STOCKGUARD<span className="flex">{guardIcon}</span>
+          </span>
+        </Link>
+
+      
+        <ul className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm font-semibold text-slate-200 ">
+          <li className="rounded-lg bg-white/10 py-2">
+            <Link
+              to="/"
+              className="px-4 py-2 rounded-xl hover:bg-teal-500  hover:text-white transition"
+            >
+              Home
+            </Link>
+          </li>
+          <li className="rounded-lg bg-white/10 py-2">
+            <Link
+              to="/clearanceShop"
+              className="px-4 py-2 rounded-xl hover:bg-teal-500  hover:text-white transition"
+            >
+              Clearance Shop
+            </Link>
+          </li>
+          <li className="rounded-lg bg-white/10 py-2">
+            <Link
+              to="/aboutus"
+              className="px-4 py-2 rounded-xl hover:bg-teal-500  hover:text-white transition"
+            >
+              About Us
+            </Link>
+          </li>
         </ul>
 
+        
         <div className="flex items-center gap-3">
-          <Link to="/Cart">
-            <button className="p-2.5 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/25 transition duration-200 cursor-pointer">
-              {cartIcon}
-            </button>
+      
+          <Link
+            to="/cart"
+            className="relative px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold transition flex items-center gap-1.5"
+          >
+            <span>{cartIcon}</span>
+            <span className="absolute -top-2 -right-2 min-w-5 h-5 px-1.5 rounded-full bg-amber-500 border border-amber-300/60 text-white text-[10px] font-extrabold flex items-center justify-center shadow-md">
+              {cart.length}
+            </span>
           </Link>
-          <Link to="/Login">
-            <button className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-yellow-400 border border-teal-300/40 text-white text-sm font-semibold transition duration-200 cursor-pointer">
-              Login
-            </button>
+
+      
+          <Link
+            to="/login"
+            className="px-4 py-2 rounded-xl bg-teal-500/80 hover:bg-teal-500 border border-teal-300/40 text-white text-xs font-bold shadow transition"
+          >
+            Login
           </Link>
-          <Link to="/Signup">
-            <button className="px-4 py-2 rounded-xl bg-orange-400 hover:bg-teal-500 border border-teal-300/40 text-white text-sm font-semibold transition duration-200 cursor-pointer">
-              Sign Up
-            </button>
+
+
+          <Link
+            to="/signUp"
+            className="px-4 py-2 rounded-xl bg-amber-500/85 hover:bg-amber-500 border border-amber-300/50 text-white text-xs font-bold shadow transition"
+          >
+            Sign Up
           </Link>
         </div>
       </nav>

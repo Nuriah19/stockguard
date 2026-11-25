@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Notfound from "../pages/Notfound"
 import Layout from "../componets/Layout";
-import Sidebar from "../componets/Sidebar";
+import Single from "../pages/Single";
 import Login from "../pages/Login";
-import AdminDashboard from "../pages/AdminDashboard";
+import AdminDashboard from "../componets/admin/AdminDashboard"
 import Signup from "../pages/Signup";
 import Aboutus from "../pages/Aboutus";
 import ClearanceShop from "../pages/ClearanceShop";
@@ -32,7 +32,7 @@ function Router() {
           }
         />
         <Route
-          path="/Signup"
+          path="/signup"
           element={
             <Layout>
               <Signup />
@@ -40,7 +40,7 @@ function Router() {
           }
         />
         <Route
-          path="/Login"
+          path="/login"
           element={
             <Layout>
               <Login />
@@ -49,7 +49,7 @@ function Router() {
         />
 
         <Route
-          path="/Aboutus"
+          path="/aboutus"
           element={
             <Layout>
               <Aboutus />
@@ -57,7 +57,7 @@ function Router() {
           }
         />
         <Route
-          path="/ClearanceShop"
+          path="/clearanceShop"
           element={
             <Layout>
               <ClearanceShop />
@@ -65,21 +65,23 @@ function Router() {
           }
         />
 
-        <Route path="/Dashboard" element={<AdminDashboard />} />
+        <Route path="/single/:id" element={<Layout><Single /></Layout>} />
 
+        
         <Route
-          path="/Sidebar"
-          element={
-            <Layout>
-              <Sidebar />
-            </Layout>
-          }
-        />
-        <Route
-          path="/Cart"
+          path="/cart"
           element={
             <Layout>
               <Cart />
+            </Layout>
+          }
+        />
+          
+        <Route
+          path="/admindashboard"
+          element={
+            <Layout>
+              <AdminDashboard />
             </Layout>
           }
         />

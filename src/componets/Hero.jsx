@@ -112,7 +112,7 @@ function Hero() {
         </div>
       </div>
 
-      {/* 2. BOTTOM 3-STEP PROCESS */}
+      
       <div id="how-it-works" className="space-y-4 pt-2">
         <h2 className="text-xl font-bold text-white tracking-tight">
           3-Step Process
